@@ -1,0 +1,49 @@
+ALGORITHM SumElemByHashTables
+VAR
+htab: HASH_TABLE<INTEGER,INTEGER>
+x,N,N1,,N2,i,j : INTEGER;
+SUMEg, SUMD : INTEGER:= 0;
+found:BOOLEAN;
+
+BEGIN
+write("donner le nbre des éléments set1");
+read(N1);
+write("donner le nbre des éléments set2");
+read(N2);
+N:=N1+N2;
+/**Remplissage HASHTABLE**/
+FOR i FROM 0 TO N-1 STEP 1 DO
+htab.insert(i,read(x))
+END_FOR
+/**SUM_ELEMENT_EGAUX**/
+FOR i FROM 0 TO N-1 STEP 1 DO
+FOR j FROM 1 TO N-1 STEP 1 DO
+repeat
+IF (htab.get(i) = htab.get(j)) THEN
+SUMEg:= SUMEg + (htab.get(i)) *2;
+found:= TRUE;
+break;
+END_FOR
+ELSE
+found:= FALSE;
+END_IF
+UNTIL (found=true)
+END_FOR
+/**SumNombreDistincts**/
+FOR i FROM 0 to N-1 STEP 1 DO
+FOR j FROM 0 to N1-1 STEP 1 DO
+IF (htab.get(i) <> htab.get(j)) THEN
+SUMD:=SUMD + (htab.get(i)) + (htab.get(j));
+found:=TRUE;
+break;
+ELSE
+found:= FALSE;
+END_IF
+UNTIL (found=true)
+END_FOR
+END_FOR
+
+write("la somme des éléments égaux sont ",SUMEg);
+write("la somme des éléments distincts sont ",SUMD);
+
+END
