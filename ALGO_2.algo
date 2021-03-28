@@ -19,7 +19,7 @@ END_FOR
 FOR i FROM 0 to N-1 STEP 1 DO
 FOR j FROM 0 to N1-1 STEP 1 DO
 repeat
-IF (Tab1[i] == Tab2[j]) THEN
+IF (Tab1[i] = Tab2[j]) THEN
 SUMEg:= SUMEg + Tab1[i]*2;
 found:= TRUE;
 break;
@@ -32,7 +32,7 @@ END_FOR
 /**SumNombreDistincts**/
 FOR i FROM 0 to N-1 STEP 1 DO
 FOR j FROM 0 to N1-1 STEP 1 DO
-IF (Tab1[i] != Tab2[j]) THEN
+IF (Tab1[i] <> Tab2[j]) THEN
 SUMD:=SUMD + Tab1[i]+Tab2[j];
 found:=TRUE;
 break;
