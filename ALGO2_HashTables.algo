@@ -31,7 +31,7 @@ UNTIL (found=true)
 END_FOR
 /**SumNombreDistincts**/
 FOR i FROM 0 to N-1 STEP 1 DO
-FOR j FROM 0 to N1-1 STEP 1 DO
+FOR j FROM 1 to N1-1 STEP 1 DO
 IF (htab.get(i) <> htab.get(j)) THEN
 SUMD:=SUMD + (htab.get(i)) + (htab.get(j));
 found:=TRUE;
